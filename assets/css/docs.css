@@ -1,0 +1,50 @@
+html, body {
+	height: 100%;
+}
+
+.main-column {
+	max-width: 82rem;
+	display: flex;
+	margin: 0 auto;
+	justify-content: space-between;
+}
+
+.sub-menu {
+	padding: 2rem;
+	min-width: 18rem;
+}
+
+.main-content {
+	padding: 2rem;
+	flex-grow: 1;
+}
+
+.page-wrap {
+	min-height: calc(100% - 6rem - 1px);
+}
+
+.site-footer {
+	margin-top: 1rem;
+	padding: 0;
+	width: 100%;
+}
+
+.site-footer > div {
+	max-width: 82rem;
+	margin: 0 auto;
+	padding: 1rem 2rem;
+}
+
+@media screen and (max-width: 42em) {
+	.site-footer > div, .main-column, .main-content {
+		max-width: 100%;
+	}
+
+	.main-column {
+		flex-wrap: wrap;
+	}
+
+	.sub-menu {
+		width: 100%;
+	}
+}

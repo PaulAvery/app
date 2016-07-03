@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>@paulavery/app</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href='//fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="assets/css/deps/normalize.css">
+	<link rel="stylesheet" href="assets/css/deps/cayman.css">
+	<link rel="stylesheet" href="assets/css/highlight.css">
+	<link rel="stylesheet" href="assets/css/header.css">
+	<link rel="stylesheet" href="assets/css/menu.css">
+	<link rel="stylesheet" href="assets/css/docs.css">
+
+	<script src="assets/js/collapse.js"></script>
+	<script src="assets/ js/reload.js"></script>
+</head>
+<body class="collapsed">
+	<div class="page-wrap">
+		<section class="page-header placeholder">
+			<div><h1 class="project-name">@paulavery/app</h1></div>
+			<h2 class="project-tagline">A basic application framework</h2>
+			<nav class="main-menu">
+				<ul>
+					<li><a href="./" class="active">Introduction</a></li>
+							<li><a href="components.html" >Components</a></li>
+							<li><a href="configuration.html" >Configuration</a></li>
+							<li><a href="events.html" >Events</a></li>
+							<li><a href="logging.html" >Logging</a></li>
+				</ul>
+			</nav>
+		</section>
+		<section class="page-header">
+			<div><h1 class="project-name">@paulavery/app</h1></div>
+			<h2 class="project-tagline">A basic application framework</h2>
+			<nav class="main-menu">
+				<ul>
+					<li><a href="./" class="active">Introduction</a></li>
+							<li><a href="components.html" >Components</a></li>
+							<li><a href="configuration.html" >Configuration</a></li>
+							<li><a href="events.html" >Events</a></li>
+							<li><a href="logging.html" >Logging</a></li>
+				</ul>
+			</nav>
+		</section>
+		<div class="main-column">
+			<section class="main-content">
+				<h1>Minimal application framework</h1>
+<p>This module provides the absolute basics to create an application. It gives you the following:</p>
+<ol>
+<li><a href="./components.html">Structure via Components</a></li>
+<li><a href="./events.html">Central event handling</a></li>
+<li><a href="./configuration.html">Configuration loading</a></li>
+<li><a href="./logging.html">Logging</a></li>
+</ol>
+<p>And that’s it. Just the basics:</p>
+<pre class="editor editor-colors"><div class="line"><span class="text plain null-grammar"><span>import&nbsp;{&nbsp;Server&nbsp;as&nbsp;WebSocketServer&nbsp;}&nbsp;from&nbsp;&#39;ws&#39;;</span></span></div><div class="line"><span class="text plain null-grammar"><span>import&nbsp;express&nbsp;from&nbsp;&#39;express&#39;;</span></span></div><div class="line"><span class="text plain null-grammar"><span>import&nbsp;App&nbsp;from&nbsp;&#39;@paulavery/app&#39;;</span></span></div><div class="line"><span class="text plain null-grammar"><span>&nbsp;</span></span></div><div class="line"><span class="text plain null-grammar"><span>/*&nbsp;A&nbsp;component&nbsp;which&nbsp;simply&nbsp;starts&nbsp;a&nbsp;websocket&nbsp;server&nbsp;*/</span></span></div><div class="line"><span class="text plain null-grammar"><span>function&nbsp;socketServer(app,&nbsp;config)&nbsp;{</span></span></div><div class="line"><span class="text plain null-grammar"><span>	let&nbsp;server&nbsp;=&nbsp;new&nbsp;WebSocketServer({&nbsp;port:&nbsp;config.port&nbsp;});</span></span></div><div class="line"><span class="text plain null-grammar"><span>&nbsp;</span></span></div><div class="line"><span class="text plain null-grammar"><span>	server.on(&#39;connection&#39;,&nbsp;socket&nbsp;=&gt;&nbsp;{</span></span></div><div class="line"><span class="text plain null-grammar"><span>		app.logger.trace(&#39;connection&#39;);</span></span></div><div class="line"><span class="text plain null-grammar"><span>&nbsp;</span></span></div><div class="line"><span class="text plain null-grammar"><span>		socket.on(&#39;message&#39;,&nbsp;message&nbsp;=&gt;&nbsp;{</span></span></div><div class="line"><span class="text plain null-grammar"><span>			app.logger.trace(&#39;message&#39;,&nbsp;{message:&nbsp;message});</span></span></div><div class="line"><span class="text plain null-grammar"><span>		});</span></span></div><div class="line"><span class="text plain null-grammar"><span>	});</span></span></div><div class="line"><span class="text plain null-grammar"><span>&nbsp;</span></span></div><div class="line"><span class="text plain null-grammar"><span>	return&nbsp;server;</span></span></div><div class="line"><span class="text plain null-grammar"><span>}</span></span></div><div class="line"><span class="text plain null-grammar"><span>&nbsp;</span></span></div><div class="line"><span class="text plain null-grammar"><span>/*&nbsp;Set&nbsp;the&nbsp;default&nbsp;config&nbsp;for&nbsp;the&nbsp;socket&nbsp;server&nbsp;*/</span></span></div><div class="line"><span class="text plain null-grammar"><span>socketServer.config&nbsp;=&nbsp;{&nbsp;port:&nbsp;81&nbsp;};</span></span></div><div class="line"><span class="text plain null-grammar"><span>&nbsp;</span></span></div><div class="line"><span class="text plain null-grammar"><span>/*&nbsp;A&nbsp;component&nbsp;which&nbsp;starts&nbsp;a&nbsp;webserver&nbsp;and&nbsp;sends&nbsp;events&nbsp;to&nbsp;all&nbsp;websocket&nbsp;clients&nbsp;on&nbsp;each&nbsp;request&nbsp;*/</span></span></div><div class="line"><span class="text plain null-grammar"><span>function&nbsp;webServer(app,&nbsp;config)&nbsp;{</span></span></div><div class="line"><span class="text plain null-grammar"><span>	let&nbsp;server&nbsp;=&nbsp;express();</span></span></div><div class="line"><span class="text plain null-grammar"><span>&nbsp;</span></span></div><div class="line"><span class="text plain null-grammar"><span>	server.use(&#39;*&#39;,&nbsp;(req,&nbsp;res,&nbsp;next)&nbsp;=&gt;&nbsp;{</span></span></div><div class="line"><span class="text plain null-grammar"><span>		let&nbsp;data&nbsp;=&nbsp;{&nbsp;method:&nbsp;req.method,&nbsp;path:&nbsp;req.originalUrl&nbsp;};</span></span></div><div class="line"><span class="text plain null-grammar"><span>&nbsp;</span></span></div><div class="line"><span class="text plain null-grammar"><span>		app.logger.trace(`${req.method}:&nbsp;${req.path}`,&nbsp;data);</span></span></div><div class="line"><span class="text plain null-grammar"><span>		app.socketServer.clients.forEach(client&nbsp;=&gt;&nbsp;client.send(JSON.stringify(data)));</span></span></div><div class="line"><span class="text plain null-grammar"><span>&nbsp;</span></span></div><div class="line"><span class="text plain null-grammar"><span>		next();</span></span></div><div class="line"><span class="text plain null-grammar"><span>	});</span></span></div><div class="line"><span class="text plain null-grammar"><span>&nbsp;</span></span></div><div class="line"><span class="text plain null-grammar"><span>	app.on(&#39;app:boot&#39;,&nbsp;()&nbsp;=&gt;&nbsp;server.listen(config.port));</span></span></div><div class="line"><span class="text plain null-grammar"><span>&nbsp;</span></span></div><div class="line"><span class="text plain null-grammar"><span>	return&nbsp;server;</span></span></div><div class="line"><span class="text plain null-grammar"><span>}</span></span></div><div class="line"><span class="text plain null-grammar"><span>&nbsp;</span></span></div><div class="line"><span class="text plain null-grammar"><span>/*&nbsp;Set&nbsp;the&nbsp;default&nbsp;config&nbsp;for&nbsp;the&nbsp;express&nbsp;server&nbsp;*/</span></span></div><div class="line"><span class="text plain null-grammar"><span>webServer.config&nbsp;=&nbsp;{&nbsp;port:&nbsp;80&nbsp;};</span></span></div><div class="line"><span class="text plain null-grammar"><span>&nbsp;</span></span></div><div class="line"><span class="text plain null-grammar"><span>new&nbsp;App(&#39;my-app&#39;)</span></span></div><div class="line"><span class="text plain null-grammar"><span>	.register(webServer)</span></span></div><div class="line"><span class="text plain null-grammar"><span>	.register(socketServer)</span></span></div><div class="line"><span class="text plain null-grammar"><span>	.boot();</span></span></div><div class="line"><span class="text plain null-grammar"><span>&nbsp;</span></span></div></pre>
+
+			</section>
+		</div>
+	</div>
+	<footer class="site-footer">
+		<div>
+			<span class="site-footer-owner"><a href="">@paulavery/app</a> is maintained by <a href="https://github.com/PaulAvery/">Florian Albertz</a>.</span>
+			<span class="site-footer-credits">This page uses a modified version of the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+		</div>
+	</footer>
+</body>
+</html>

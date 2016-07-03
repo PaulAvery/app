@@ -1,0 +1,373 @@
+pre {
+  color: #245789 !important;
+  background-color: #f5f7fa !important;
+}
+
+.editor .invisible {
+  color: #245789;
+}
+
+.uno-1 {
+  color: #06192d;
+}
+.uno-2 {
+  color: #245789;
+}
+.uno-3 {
+  color: #628ab2;
+}
+.uno-4 {
+  color: #9aa8b6;
+}
+.duo-1 {
+  color: #068947;
+}
+.duo-2 {
+  color: #72cb9e;
+}
+.duo-3 {
+  color: #aeb7b3;
+}
+.meta {
+  color: #9aa8b6;
+}
+.html.elements,
+.entity,
+.tag,
+.function-call {
+  color: #06192d;
+}
+.variable,
+.attribute-name,
+.character.escape {
+  color: #245789;
+}
+.support {
+  color: #628ab2;
+}
+.string,
+.constant,
+.storage.type {
+  color: #068947;
+}
+.keyword,
+.storage {
+  color: #72cb9e;
+}
+.punctuation,
+.bracket,
+.brace {
+  color: #9aa8b6;
+}
+.string .punctuation {
+  color: #aeb7b3;
+}
+.comment {
+  color: #9aa8b6;
+  font-style: italic;
+}
+.bold {
+  font-weight: bold;
+}
+.italic {
+  font-style: italic;
+}
+.c .parens,
+.c .block {
+  color: #245789;
+}
+.c .parens .punctuation,
+.c .block .punctuation,
+.c .parens .bracket,
+.c .block .bracket,
+.c .parens .brace,
+.c .block .brace {
+  color: #9aa8b6;
+}
+.c .parens .string .punctuation,
+.c .block .string .punctuation {
+  color: #aeb7b3;
+}
+.c .comment {
+  color: #aeb7b3;
+}
+.source.clojure .expression {
+  color: #068947;
+}
+.source.clojure .expression .punctuation {
+  color: #9aa8b6;
+}
+.source.clojure .symbol {
+  color: #245789;
+}
+.source.clojure .vector {
+  color: #628ab2;
+}
+.coffee.source {
+  color: #628ab2;
+}
+.source.cs .meta {
+  color: #628ab2;
+}
+.source.cs .method {
+  color: #245789;
+}
+.css.source {
+  color: #9aa8b6;
+}
+.css.at-rule {
+  color: #06192d;
+}
+.css.at-rule .keyword.punctuation {
+  color: inherit;
+}
+.css.attribute-name.id,
+.css.attribute-name.class {
+  color: #06192d;
+}
+.gfm {
+  color: #06192d;
+}
+.gfm .punctuation,
+.gfm .bracket,
+.gfm .brace {
+  color: #9aa8b6;
+}
+.gfm .string .punctuation {
+  color: #aeb7b3;
+}
+.gfm .link {
+  color: #245789;
+}
+.gfm.markup {
+  color: #245789;
+}
+.gfm.markup.bold {
+  font-weight: bold;
+}
+.gfm.markup.italic {
+  font-style: italic;
+}
+.gfm.markup.strike {
+  color: #9aa8b6;
+  text-decoration: line-through;
+}
+.gfm.markup.raw {
+  color: #068947;
+}
+.gfm.markup.raw .support,
+.gfm.markup.code .support {
+  color: #9aa8b6;
+}
+.gfm.comment {
+  color: #9aa8b6;
+}
+.gfm.comment.quote {
+  color: #245789;
+}
+.gfm.table {
+  color: #068947;
+}
+.gfm.table .border,
+.gfm.table .pipe {
+  color: #9aa8b6;
+}
+.gfm.variable,
+.gfm.entity {
+  color: #068947;
+}
+.gfm.support {
+  color: #72cb9e;
+}
+.gfm.heading-1,
+.gfm.heading-2,
+.gfm.heading-3 {
+  color: #068947;
+}
+.gfm.heading-4,
+.gfm.heading-5,
+.gfm.heading-6 {
+  color: #72cb9e;
+}
+.haskell.source {
+  color: #245789;
+}
+.haskell.source .punctuation,
+.haskell.source .bracket,
+.haskell.source .brace {
+  color: #9aa8b6;
+}
+.haskell.source .string .punctuation {
+  color: #aeb7b3;
+}
+.html.meta {
+  color: #9aa8b6;
+}
+.html.text {
+  color: #628ab2;
+}
+.html .string .id {
+  color: #068947;
+}
+.jade.text {
+  color: #628ab2;
+}
+.jade .meta.control.flow {
+  color: #245789;
+}
+.jade .constant.name.attribute.tag {
+  color: #9aa8b6;
+}
+.jade .attribute-name.id {
+  color: #068947;
+}
+.java .method {
+  color: #245789;
+}
+.java .method .punctuation,
+.java .method .bracket,
+.java .method .brace {
+  color: #9aa8b6;
+}
+.java .method .string .punctuation {
+  color: #aeb7b3;
+}
+.java .dereference {
+  color: #9aa8b6;
+}
+.js.source {
+  color: #245789;
+}
+.js.source .punctuation,
+.js.source .bracket,
+.js.source .brace {
+  color: #9aa8b6;
+}
+.js.source .string .punctuation {
+  color: #aeb7b3;
+}
+.json .string {
+  color: #245789;
+}
+.json .string .punctuation {
+  color: #9aa8b6;
+}
+.json .value > .string {
+  color: #068947;
+}
+.json .value > .string .punctuation {
+  color: #9aa8b6;
+}
+.json .value .constant {
+  color: #72cb9e;
+}
+.less.variable:first-child {
+  color: #06192d;
+}
+.less .mixin {
+  color: #72cb9e;
+}
+.mediawiki {
+  color: #06192d;
+}
+.mediawiki .punctuation,
+.mediawiki .bracket,
+.mediawiki .brace {
+  color: #9aa8b6;
+}
+.mediawiki .string .punctuation {
+  color: #aeb7b3;
+}
+.mediawiki .wiki-link {
+  color: #245789;
+}
+.mediawiki .heading {
+  color: #068947;
+}
+.mediawiki .function-call {
+  color: #72cb9e;
+}
+.mediawiki .value {
+  color: #068947;
+}
+.mediawiki .fix_this_later {
+  color: #245789;
+}
+.mediawiki .pipe,
+.mediawiki .link,
+.mediawiki .tag {
+  color: #9aa8b6;
+}
+.php .string-contents {
+  color: #068947;
+}
+.sass .at-rule .at-rule,
+.sass .at-rule .at-rule > .punctuation {
+  color: #06192d;
+}
+.sass .mixin + .function,
+.sass .include + .function {
+  color: #72cb9e;
+}
+.sass.property-value {
+  color: #068947;
+}
+.sass.property-value .function {
+  color: #245789;
+}
+.sass.property-value .punctuation {
+  color: #9aa8b6;
+}
+.sass.variable.parameter.url {
+  color: #068947;
+}
+.scss .at-rule .at-rule,
+.scss .at-rule .at-rule > .punctuation {
+  color: #06192d;
+}
+.scss .mixin + .function,
+.scss .include + .function {
+  color: #72cb9e;
+}
+.scss.property-value {
+  color: #068947;
+}
+.scss.property-value .function {
+  color: #245789;
+}
+.scss.property-value .punctuation {
+  color: #9aa8b6;
+}
+.scss.variable.parameter.url {
+  color: #068947;
+}
+.slim.meta {
+  color: #9aa8b6;
+}
+.slim.text {
+  color: #628ab2;
+}
+.slim .string .id {
+  color: #068947;
+}
+.stylus .function .name {
+  color: #72cb9e;
+}
+.tex .other {
+  color: #72cb9e;
+}
+.tex .reference {
+  color: #245789;
+}
+.plain .text {
+  color: #06192d;
+}
+.yaml .tag {
+  color: #245789;
+}
+.yaml .constant {
+  color: #72cb9e;
+}
+.yaml .punctuation {
+  color: #9aa8b6;
+}

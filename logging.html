@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Logging</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href='//fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="assets/css/deps/normalize.css">
+	<link rel="stylesheet" href="assets/css/deps/cayman.css">
+	<link rel="stylesheet" href="assets/css/highlight.css">
+	<link rel="stylesheet" href="assets/css/header.css">
+	<link rel="stylesheet" href="assets/css/menu.css">
+	<link rel="stylesheet" href="assets/css/docs.css">
+
+	<script src="assets/js/collapse.js"></script>
+	<script src="assets/ js/reload.js"></script>
+</head>
+<body class="collapsed">
+	<div class="page-wrap">
+		<section class="page-header placeholder">
+			<div><h1 class="project-name">@paulavery/app</h1></div>
+			<h2 class="project-tagline">A basic application framework</h2>
+			<nav class="main-menu">
+				<ul>
+					<li><a href="./" >Introduction</a></li>
+							<li><a href="components.html" >Components</a></li>
+							<li><a href="configuration.html" >Configuration</a></li>
+							<li><a href="events.html" >Events</a></li>
+							<li><a href="logging.html" class="active">Logging</a></li>
+				</ul>
+			</nav>
+		</section>
+		<section class="page-header">
+			<div><h1 class="project-name">@paulavery/app</h1></div>
+			<h2 class="project-tagline">A basic application framework</h2>
+			<nav class="main-menu">
+				<ul>
+					<li><a href="./" >Introduction</a></li>
+							<li><a href="components.html" >Components</a></li>
+							<li><a href="configuration.html" >Configuration</a></li>
+							<li><a href="events.html" >Events</a></li>
+							<li><a href="logging.html" class="active">Logging</a></li>
+				</ul>
+			</nav>
+		</section>
+		<div class="main-column">
+			<section class="main-content">
+				<h1>Logging</h1>
+<p>The <code>app</code> object passed to your components has a <code>logger</code> property attached to it. This is an instance of <a href="https://pages.github.io/paulavery/logger">@paulavery/logger</a> scoped to your components name.<br>
+You may use this to log whatever you like:</p>
+<pre class="editor editor-colors"><div class="line"><span class="text plain null-grammar"><span>function&nbsp;component1(app)&nbsp;{</span></span></div><div class="line"><span class="text plain null-grammar"><span>	app.logger.log(&#39;Hi,&nbsp;I&nbsp;got&nbsp;registered!&#39;);</span></span></div><div class="line"><span class="text plain null-grammar"><span>}</span></span></div><div class="line"><span class="text plain null-grammar"><span>&nbsp;</span></span></div><div class="line"><span class="text plain null-grammar"><span>new&nbsp;App().register(component1);</span></span></div></pre>
+<h2>Debug mode</h2>
+<p>If the environment is not set to <code>production</code>, the logger will print formatted and colorized output. Otherwise it will print JSON strings.</p>
+
+			</section>
+		</div>
+	</div>
+	<footer class="site-footer">
+		<div>
+			<span class="site-footer-owner"><a href="">@paulavery/app</a> is maintained by <a href="https://github.com/PaulAvery/">Florian Albertz</a>.</span>
+			<span class="site-footer-credits">This page uses a modified version of the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+		</div>
+	</footer>
+</body>
+</html>

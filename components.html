@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Components</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href='//fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="assets/css/deps/normalize.css">
+	<link rel="stylesheet" href="assets/css/deps/cayman.css">
+	<link rel="stylesheet" href="assets/css/highlight.css">
+	<link rel="stylesheet" href="assets/css/header.css">
+	<link rel="stylesheet" href="assets/css/menu.css">
+	<link rel="stylesheet" href="assets/css/docs.css">
+
+	<script src="assets/js/collapse.js"></script>
+	<script src="assets/ js/reload.js"></script>
+</head>
+<body class="collapsed">
+	<div class="page-wrap">
+		<section class="page-header placeholder">
+			<div><h1 class="project-name">@paulavery/app</h1></div>
+			<h2 class="project-tagline">A basic application framework</h2>
+			<nav class="main-menu">
+				<ul>
+					<li><a href="./" >Introduction</a></li>
+							<li><a href="components.html" class="active">Components</a></li>
+							<li><a href="configuration.html" >Configuration</a></li>
+							<li><a href="events.html" >Events</a></li>
+							<li><a href="logging.html" >Logging</a></li>
+				</ul>
+			</nav>
+		</section>
+		<section class="page-header">
+			<div><h1 class="project-name">@paulavery/app</h1></div>
+			<h2 class="project-tagline">A basic application framework</h2>
+			<nav class="main-menu">
+				<ul>
+					<li><a href="./" >Introduction</a></li>
+							<li><a href="components.html" class="active">Components</a></li>
+							<li><a href="configuration.html" >Configuration</a></li>
+							<li><a href="events.html" >Events</a></li>
+							<li><a href="logging.html" >Logging</a></li>
+				</ul>
+			</nav>
+		</section>
+		<div class="main-column">
+			<section class="main-content">
+				<h1>Components</h1>
+<p>This application expects you to structure your application into separated components.</p>
+<p>For this module, a component is simply a function with a return value and a name. You can register it via <code>app.register()</code> and it will be called immediately.</p>
+<p>As its first argument the component will be passed an object. This object will emit an <code>app:boot</code> event. The moment this happens, the return values of all other components will be available as properties on said object.</p>
+<h2>Example</h2>
+<pre class="editor editor-colors"><div class="line"><span class="text plain null-grammar"><span>function&nbsp;component1(app)&nbsp;{</span></span></div><div class="line"><span class="text plain null-grammar"><span>	/*&nbsp;Will&nbsp;log&nbsp;&nbsp;&#39;And&nbsp;I&nbsp;am&nbsp;no.&nbsp;2&#39;&nbsp;*/</span></span></div><div class="line"><span class="text plain null-grammar"><span>	app.on(&#39;app:boot&#39;,&nbsp;()&nbsp;=&gt;&nbsp;console.log(app.component2));</span></span></div><div class="line"><span class="text plain null-grammar"><span>&nbsp;</span></span></div><div class="line"><span class="text plain null-grammar"><span>	return&nbsp;&#39;I&nbsp;am&nbsp;component1&#39;;</span></span></div><div class="line"><span class="text plain null-grammar"><span>}</span></span></div><div class="line"><span class="text plain null-grammar"><span>&nbsp;</span></span></div><div class="line"><span class="text plain null-grammar"><span>function&nbsp;component2(app)&nbsp;{</span></span></div><div class="line"><span class="text plain null-grammar"><span>	/*&nbsp;Will&nbsp;log&nbsp;&nbsp;&#39;I&nbsp;am&nbsp;component1&#39;&nbsp;*/</span></span></div><div class="line"><span class="text plain null-grammar"><span>	app.on(&#39;app:boot&#39;,&nbsp;()&nbsp;=&gt;&nbsp;console.log(app.component1));</span></span></div><div class="line"><span class="text plain null-grammar"><span>&nbsp;</span></span></div><div class="line"><span class="text plain null-grammar"><span>	return&nbsp;&#39;And&nbsp;I&nbsp;am&nbsp;no.&nbsp;2&#39;;</span></span></div><div class="line"><span class="text plain null-grammar"><span>}</span></span></div><div class="line"><span class="text plain null-grammar"><span>&nbsp;</span></span></div><div class="line"><span class="text plain null-grammar"><span>new&nbsp;App(&#39;my-app&#39;).register(component1).register(component2).boot();</span></span></div></pre>
+
+			</section>
+		</div>
+	</div>
+	<footer class="site-footer">
+		<div>
+			<span class="site-footer-owner"><a href="">@paulavery/app</a> is maintained by <a href="https://github.com/PaulAvery/">Florian Albertz</a>.</span>
+			<span class="site-footer-credits">This page uses a modified version of the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+		</div>
+	</footer>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Events</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href='//fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="assets/css/deps/normalize.css">
+	<link rel="stylesheet" href="assets/css/deps/cayman.css">
+	<link rel="stylesheet" href="assets/css/highlight.css">
+	<link rel="stylesheet" href="assets/css/header.css">
+	<link rel="stylesheet" href="assets/css/menu.css">
+	<link rel="stylesheet" href="assets/css/docs.css">
+
+	<script src="assets/js/collapse.js"></script>
+	<script src="assets/ js/reload.js"></script>
+</head>
+<body class="collapsed">
+	<div class="page-wrap">
+		<section class="page-header placeholder">
+			<div><h1 class="project-name">@paulavery/app</h1></div>
+			<h2 class="project-tagline">A basic application framework</h2>
+			<nav class="main-menu">
+				<ul>
+					<li><a href="./" >Introduction</a></li>
+							<li><a href="components.html" >Components</a></li>
+							<li><a href="configuration.html" >Configuration</a></li>
+							<li><a href="events.html" class="active">Events</a></li>
+							<li><a href="logging.html" >Logging</a></li>
+				</ul>
+			</nav>
+		</section>
+		<section class="page-header">
+			<div><h1 class="project-name">@paulavery/app</h1></div>
+			<h2 class="project-tagline">A basic application framework</h2>
+			<nav class="main-menu">
+				<ul>
+					<li><a href="./" >Introduction</a></li>
+							<li><a href="components.html" >Components</a></li>
+							<li><a href="configuration.html" >Configuration</a></li>
+							<li><a href="events.html" class="active">Events</a></li>
+							<li><a href="logging.html" >Logging</a></li>
+				</ul>
+			</nav>
+		</section>
+		<div class="main-column">
+			<section class="main-content">
+				<h1>Event Handling</h1>
+<p>The <code>app</code> object which is passed to each component is an instance of <a href="https://pages.github.io/paulavery/events">@paulavery/events</a>.<br>
+Therefore you can use it to pass messages between components.</p>
+<p>All components share the same root emitter, which means they can listen to each others events:</p>
+<pre class="editor editor-colors"><div class="line"><span class="text plain null-grammar"><span>function&nbsp;component1(app)&nbsp;{</span></span></div><div class="line"><span class="text plain null-grammar"><span>	app.on(&#39;component2:event&#39;,&nbsp;data&nbsp;=&gt;&nbsp;{&nbsp;/*&nbsp;Do&nbsp;something&nbsp;*/&nbsp;});</span></span></div><div class="line"><span class="text plain null-grammar"><span>}</span></span></div><div class="line"><span class="text plain null-grammar"><span>&nbsp;</span></span></div><div class="line"><span class="text plain null-grammar"><span>function&nbsp;component2(app)&nbsp;{</span></span></div><div class="line"><span class="text plain null-grammar"><span>	app.emit(&#39;event&#39;,&nbsp;data);</span></span></div><div class="line"><span class="text plain null-grammar"><span>}</span></span></div><div class="line"><span class="text plain null-grammar"><span>&nbsp;</span></span></div><div class="line"><span class="text plain null-grammar"><span>new&nbsp;App(&#39;app&#39;).register(component1).register(component2).boot();</span></span></div></pre>
+<p>As you can see above, if you emit an event, it is emitted into a scope named after your component. Therefore a component can listen to all scopes, but emit only to its own.</p>
+
+			</section>
+		</div>
+	</div>
+	<footer class="site-footer">
+		<div>
+			<span class="site-footer-owner"><a href="">@paulavery/app</a> is maintained by <a href="https://github.com/PaulAvery/">Florian Albertz</a>.</span>
+			<span class="site-footer-credits">This page uses a modified version of the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+		</div>
+	</footer>
+</body>
+</html>
