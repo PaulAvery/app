@@ -2,7 +2,7 @@
   "name": "@paulavery/app",
   "version": "1.0.0",
   "description": "A basic application framework",
-  "main": "lib/app.js",
+  "main": "lib/index.js",
   "license": "BSD-3-Clause",
   "author": {
     "name": "Florian Albertz",
