@@ -71,7 +71,7 @@ export default class App {
 		emitter.shutdown = () => this.shutdown();
 
 		/* If anything is emitted in the app namespace redirect it to the toplevel */
-		emitter.on('app:*', (path, ...args) => this[emitterKey].emit('app:' + path.join(':'), ...args));
+		emitter.on('app:*', (path, ...args) => this[emitterKey].emit('app:' + path.slice(1).join(':'), ...args));
 
 		/* Redirect all listeners to the root emitter */
 		emitter.on = (...args) => this[emitterKey].on(...args);
