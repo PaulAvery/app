@@ -32,14 +32,15 @@ function socketServer(app, config) {
 socketServer.config = { port: 81 };
 
 /* A component which starts a webserver and sends events to all websocket clients on each request */
-function webServer(app, config) {
+async function webServer(app, config) {
 	let server = express();
+	let socketServer = await app.socketServer;
 
 	server.use('*', (req, res, next) => {
 		let data = { method: req.method, path: req.originalUrl };
 
 		app.logger.trace(`${req.method}: ${req.path}`, data);
-		app.socketServer.clients.forEach(client => client.send(JSON.stringify(data)));
+		socketServer.clients.forEach(client => client.send(JSON.stringify(data)));
 
 		next();
 	});
