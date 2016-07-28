@@ -59,7 +59,7 @@ export default class App {
 			throw new Error(`Component cannot have name ${component.name} because it is reserved`);
 		}
 
-		if(this[componentsKey].length > 0 && (this[componentsKey][0][component.name] || this[componentsKey][0].name === component.name)) {
+		if(this[componentsKey].length > 0 && (this[componentsKey][0].em[component.name] || this[componentsKey][0].em.name === component.name)) {
 			throw new Error(`A component with name ${component.name} is already registered`);
 		}
 
@@ -84,10 +84,13 @@ export default class App {
 		let instance = component(emitter, component.config);
 
 		/* Attach to each already existing component */
-		this[componentsKey].forEach(comp => { comp[component.name] = instance; });
+		this[componentsKey].forEach(({em, inst}) => {
+			emitter[em.name] = inst;
+			em[emitter.name] = instance;
+		});
 
 		/* Save, so we can later attach other components */
-		this[componentsKey].push(emitter);
+		this[componentsKey].push({em: emitter, inst: instance});
 
 		/* Return ourselves for chaining */
 		return this;
